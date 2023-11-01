@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://mycar.kz/cars');
+  await page.getByRole('link', { name: 'Главная' }).click();
+  await page.getByRole('contentinfo').getByRole('link', { name: 'Поиск авто' }).click();
+  await page.getByRole('contentinfo').getByRole('link', { name: 'Создать объявление' }).click();
+  const page1Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Автокредит' }).click();
+  const page1 = await page1Promise;
+  await page.getByRole('link', { name: 'Mycar Гид' }).click();
+  await page.getByRole('link', { name: 'Профиль' }).click();
+  await page.getByRole('button').first().click();
+  await page.getByRole('link', { name: 'Мои объявления' }).click();
+  await page.getByRole('button').first().click();
+  await page.getByRole('link', { name: 'Избранное' }).click();
+  await page.getByRole('button').first().click();
+  await page.getByRole('link', { name: 'Настройки' }).click();
+  await page.getByRole('button').first().click();
+  await page.getByRole('link', { name: 'О компании' }).click();
+  await page.getByRole('link', { name: 'Франшиза' }).click();
+  const page2Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Пользовательское соглашение' }).click();
+  const page2 = await page2Promise;
+  const page3Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Политика конфиденциальности' }).click();
+  const page3 = await page3Promise;
+  const page4Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Сбор и обработка персональных данных' }).click();
+  const page4 = await page4Promise;
+});
