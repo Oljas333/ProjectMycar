@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://dev.mycar.kz/');
+  await page.goto('https://mycar.kz/');
   await expect(page.getByRole('banner').getByRole('link', { name: 'Поиск авто'})).toBeEnabled();
   await expect(page.getByText('Выберите город')).toBeEnabled();
   await expect(page.getByRole('button', { name: 'Алматы' })).toBeEnabled();
@@ -46,7 +46,7 @@ test('test', async ({ page }) => {
   await expect(page.getByLabel('Бензиновый')).toBeEnabled();
   await expect(page.getByLabel('Гибридный')).toBeEnabled();
   await expect(page.getByLabel('Дизельный')).toBeEnabled();
-  await page.goto('https://dev.mycar.kz/cars');
+  await page.goto('https://mycar.kz/cars');
   await expect(page.locator('div:nth-child(13) > div:nth-child(2) > .my-2')).toBeEnabled();
   await expect(page.getByLabel('Объем двигателя, От')).toBeEnabled();
   await expect(page.getByLabel('Объем двигателя, От').fill('2.')).toBe('2');
@@ -71,7 +71,7 @@ test('test', async ({ page }) => {
   await expect(page.locator('div:nth-child(17) > div > .my-2').first()).toBeEnabled();
   await expect(page.locator('div:nth-child(17) > div:nth-child(2) > .my-2')).toBeEnabled();
   await expect(page.locator('div:nth-child(3) > .my-2')).toBeEnabled();
-  await page.goto('https://dev.mycar.kz/cars');
+  await page.goto('https://mycar.kz/cars');
   await expect(page.getByRole('link', { name: 'Главная' })).toBeEnabled();
   await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Поиск авто' })).toBeEnabled();
   await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Создать объявление' })).toBeEnabled();
